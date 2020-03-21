@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="/js/jquery.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		var url = "ws://localhost:8080/user/";
+		var ws = null;
+		//连接服务器
+		$("#join").click(function(){
+			var userName = "zhangsan";
+			url = url + userName;	//传递用户名
+			console.info(url);
+			//创建对象，连接服务器
+			ws = new WebSocket(url); 	//html5中提供了	
+			//给open事件绑定方法
+			ws.onopen = function(){
+				console.info("连接成功");
+			}
+			//接收到数据
+			ws.onmessage = function(result){
+				console.info(result);
+			}
+			//关闭连接
+			ws.onclose = function(){
+				console.info("关闭连接");
+			}
+		});
+
+		
+		
+	})
+</script>
+</head>
+<body>
+<button id="join">提交请求</button>
+</body>
+</html>

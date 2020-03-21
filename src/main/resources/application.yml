@@ -1,0 +1,10 @@
+spring:
+  rabbitmq:
+    host: 192.168.153.131 #rabbitmq的ip
+    port: 5672            #java程序访问rabbitmq时使用端口
+    username: admin
+    password: 123456
+    publisher-confirms: true    #是否开启消息确认机制
+    publisher-returns: true     #是否返回消息确认
+    template: 
+      mandatory: true           #启动强制信息确认，必须要确认    以上三个的作用就是保证消息的安全性

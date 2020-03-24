@@ -14,7 +14,8 @@ public class UserConfiguration {
 	
 	@Bean 
 	public Queue userQueue() {
-		return new Queue("userQueue");
+		Queue queue = new Queue("userQueue");
+		return queue;
 		
 	}
 	

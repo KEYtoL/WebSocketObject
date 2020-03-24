@@ -33,7 +33,7 @@ public class UserController {
 		System.out.println("开始请求发送");
 		if (!WebSocketUtil.MESSAGEMAP.containsKey(userName)) {
 			try {
-				userSender.send();
+				userSender.send(userName);
 				System.out.println("发送成功");
 			} catch (Exception e) {
 				// TODO Auto-generated catch block

@@ -8,9 +8,9 @@ import org.springframework.stereotype.Component;
 public class UserSender {
 	@Autowired
 	private AmqpTemplate amqpTemplate;
-	public void send() {
+	public void send(String uname) {
 		System.out.println("进入发送");
-		String messge = "1002";
-		amqpTemplate.convertAndSend("userExchange","",messge);
+		String pid = "1002";
+		amqpTemplate.convertAndSend("userQueue",pid);
 	}
 }
